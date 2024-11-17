@@ -1,5 +1,5 @@
 import React from "react";
-import { RiProductHuntLine } from "react-icons/ri";
+import { FaStore } from "react-icons/fa";
 import { Link } from "react-router-dom";
 import "./Home.scss";
 import heroImg from "../../assets/inv-img.png";
@@ -10,7 +10,7 @@ const Home = () => {
     <div className="home">
       <nav className="container --flex-between ">
         <div className="logo">
-          <RiProductHuntLine size={35} />
+          <FaStore size={35} />
         </div>
 
         <ul className="home-links">
@@ -38,6 +38,7 @@ const Home = () => {
       {/* HERO SECTION */}
       <section className="container hero">
         <div className="hero-text">
+          <h1><u>Vastukaar</u></h1>
           <h2>Inventory {"&"} Stock Management Solution</h2>
           <p>
             Inventory system to control and manage proucts in the warehouse in
