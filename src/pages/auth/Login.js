@@ -8,35 +8,28 @@ import { toast } from "react-toastify";
 import { loginUser, validateEmail } from "../../services/authService";
 import { SET_LOGIN, SET_NAME } from "../../redux/features/auth/authSlice";
 import Loader from "../../components/loader/Loader";
-
 const initialState = {
   email: "",
   password: "",
 };
-
 const Login = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const [isLoading, setIsLoading] = useState(false);
   const [formData, setformData] = useState(initialState);
   const { email, password } = formData;
-
   const handleInputChange = (e) => {
     const { name, value } = e.target;
     setformData({ ...formData, [name]: value });
   };
-
   const login = async (e) => {
     e.preventDefault();
-
     if (!email || !password) {
       return toast.error("All fields are required");
     }
-
     if (!validateEmail(email)) {
       return toast.error("Please enter a valid email");
     }
-
     const userData = {
       email,
       password,
@@ -53,7 +46,6 @@ const Login = () => {
       setIsLoading(false);
     }
   };
-
   return (
     <div className={`container ${styles.auth}`}>
       {isLoading && <Loader />}
@@ -63,7 +55,6 @@ const Login = () => {
             <BiLogIn size={35} color="#999" />
           </div>
           <h2>Login</h2>
-
           <form onSubmit={login}>
             <input
               type="email"
@@ -86,7 +77,6 @@ const Login = () => {
             </button>
           </form>
           <Link to="/forgot">Forgot Password</Link>
-
           <span className={styles.register}>
             <Link to="/">Home</Link>
             <p> &nbsp; Don't have an account? &nbsp;</p>
@@ -97,5 +87,4 @@ const Login = () => {
     </div>
   );
 };
-
 export default Login;
