@@ -26,12 +26,12 @@ const authSlice = createSlice({
       state.name = action.payload;
     },
     SET_USER(state, action) {
-      const profile = action.payload;
-      state.user.name = profile.name;
-      state.user.email = profile.email;
-      state.user.phone = profile.phone;
-      state.user.bio = profile.bio;
-      state.user.photo = profile.photo;
+      const profile = action.payload || {}; // Fallback to an empty object
+      state.user.name = profile.name || ""; // Safeguards against undefined
+      state.user.email = profile.email || "";
+      state.user.phone = profile.phone || "";
+      state.user.bio = profile.bio || "";
+      state.user.photo = profile.photo || "";
     },
   },
 });
